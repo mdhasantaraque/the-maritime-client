@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.init";
 import { useState } from "react";
@@ -23,6 +24,10 @@ const UserContext = ({ children }) => {
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+  const updateName = (name) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, { displayName: name });
   };
   const logIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -46,6 +51,7 @@ const UserContext = ({ children }) => {
   const authInfo = {
     user,
     createUser,
+    updateName,
     logIn,
     logOut,
     signInWithGoogle,

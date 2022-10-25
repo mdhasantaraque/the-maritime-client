@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const Register = () => {
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, updateName, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   // console.log(createUser);
   const handleSubmit = (event) => {
@@ -22,6 +22,23 @@ const Register = () => {
         console.log(user);
         form.reset();
         navigate("/");
+        updateName(name)
+          .then(() => {
+            // toast.success('Name Updated')
+
+            //3. Email verification
+            verifyEmail()
+              .then(() => {
+                // toast.success('Please check your email for verification link')
+                navigate(from, { replace: true });
+              })
+              .catch((error) => {
+                // toast.error(error.message)
+              });
+          })
+          .catch((error) => {
+            // toast.error(error.message)
+          });
       })
       .catch((error) => {
         console.error(error);
