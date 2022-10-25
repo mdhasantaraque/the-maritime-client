@@ -22,11 +22,11 @@ function App() {
           element: <Register></Register>,
         },
         {
-          path: "/login",
+          path: "/",
           element: <Login></Login>,
         },
         {
-          path: "blog",
+          path: "/blog",
           element: <Blog></Blog>,
         },
         {
