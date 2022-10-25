@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const Login = () => {
-  const { logIn, signInWithGoogle } = useContext(AuthContext);
+  const [userEmail, setUserEmail] = useState("");
+  const { logIn, signInWithGoogle, resetPassword } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +23,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -30,11 +34,18 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
       });
+  };
+  const handlePasswordReset = () => {
+    resetPassword(userEmail)
+      .then(() => {
+        // toast.success("Please check email, reset your email password");
+      })
+      .catch((error) => console.error(error.message));
   };
 
   return (
@@ -51,6 +62,7 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
+                onBlur={(event) => setUserEmail(event.target.value)}
                 type="email"
                 name="email"
                 placeholder="email"
@@ -70,7 +82,10 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <Link href="#" className="label-text-alt link link-hover">
+                <Link
+                  onClick={handlePasswordReset}
+                  className="label-text-alt link link-hover"
+                >
                   Forgot password?
                 </Link>
               </label>
