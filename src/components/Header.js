@@ -5,15 +5,15 @@ import logo from "../assets/logo_6.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
+    <header className="dark:bg-indigo-800 dark:text-gray-100">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <div className="flex items-center justify-between w-48">
-            <div className="w-16">
+          <div className="flex items-center justify-between w-64">
+            <div className="w-34">
               <img src={logo} alt="" />
             </div>
-            <p className="dark:text-violet-400 text-2xl font-bold">
-              The Maritime
+            <p className="dark:text-primary text-3xl font-bold ml-2">
+              THE MARITIME
             </p>
           </div>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -24,8 +24,8 @@ const Header = () => {
                 title="register"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium tracking-wide text-purple-400 transition-colors duration-200 hover:text-purple-400"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-purple-400"
+                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
                 }
               >
                 Register
@@ -38,8 +38,8 @@ const Header = () => {
                 title="Login"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium tracking-wide text-purple-400 transition-colors duration-200 hover:text-purple-400"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-purple-400"
+                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
                 }
               >
                 Login
@@ -52,8 +52,8 @@ const Header = () => {
                 title="Courses"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium tracking-wide text-purple-400 transition-colors duration-200 hover:text-purple-400"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-purple-400"
+                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
                 }
               >
                 <p>Courses</p>
@@ -66,8 +66,8 @@ const Header = () => {
                 title="Blog"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium tracking-wide text-purple-400 transition-colors duration-200 hover:text-purple-400"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-purple-400"
+                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
                 }
               >
                 Blog
@@ -107,20 +107,20 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        <svg
+                        {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 32 32"
                           fill="currentColor"
                           className="flex-shrink-0 w-8 h-8 rounded-full  dark:text-gray-100"
                         >
                           <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z"></path>
-                        </svg>
-                        <div className="flex items-center justify-between w-48">
+                        </svg> */}
+                        <div className="flex items-center justify-between w-64">
                           <div className="w-16">
                             <img src={logo} alt="" />
                           </div>
-                          <p className="dark:text-violet-400 text-2xl font-bold">
-                            IQ Checker
+                          <p className="dark:text-primary text-2xl font-bold">
+                            THE MARITIME
                           </p>
                         </div>
                       </Link>
