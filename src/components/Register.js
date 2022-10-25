@@ -1,10 +1,11 @@
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
   // console.log(createUser);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +20,18 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const handleGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -78,6 +91,11 @@ const Register = () => {
               <button className="btn btn-primary">Register</button>
             </div>
           </form>
+          <div className="form-control mb-6 mx-8">
+            <button onClick={handleGoogle} className="btn btn-primary">
+              Google Sign In
+            </button>
+          </div>
         </div>
       </div>
     </div>

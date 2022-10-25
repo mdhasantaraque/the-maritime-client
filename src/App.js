@@ -22,7 +22,7 @@ function App() {
           element: <Register></Register>,
         },
         {
-          path: "/",
+          path: "/login",
           element: <Login></Login>,
         },
         {

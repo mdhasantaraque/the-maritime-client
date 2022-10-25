@@ -1,10 +1,12 @@
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -17,11 +19,24 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
+  const handleGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-base-200">
       <div className="hero-content flex-col">
@@ -64,6 +79,11 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
+          <div className="form-control mb-6 mx-8">
+            <button onClick={handleGoogle} className="btn btn-primary">
+              Google Sign In
+            </button>
+          </div>
         </div>
       </div>
     </div>

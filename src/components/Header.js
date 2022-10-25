@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo_6.png";
+import { AuthContext } from "../contexts/UserContext";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <header className="dark:bg-indigo-800 dark:text-gray-100">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -17,34 +31,6 @@ const Header = () => {
             </p>
           </div>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li>
-              <NavLink
-                to="/register"
-                aria-label="register"
-                title="register"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
-                }
-              >
-                Register
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/login"
-                aria-label="login"
-                title="Login"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
-                }
-              >
-                Login
-              </NavLink>
-            </li>
             <li>
               <NavLink
                 to="/courses"
@@ -73,6 +59,51 @@ const Header = () => {
                 Blog
               </NavLink>
             </li>
+
+            {user?.uid ? (
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-outline btn-warning"
+                >
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <NavLink
+                    to="/register"
+                    aria-label="register"
+                    title="register"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                        : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
+                    }
+                  >
+                    Register
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/login"
+                    aria-label="login"
+                    title="Login"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                        : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
+                    }
+                  >
+                    Login
+                  </NavLink>
+                </li>
+              </>
+            )}
+
+            <li>{user?.email && <span>{user.email}</span>}</li>
           </ul>
           <div className="lg:hidden">
             <button
