@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo_6.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Header = () => {
         <div className="relative flex items-center justify-between">
           <div className="flex items-center justify-between w-48">
             <div className="w-16">
-              <img src="" alt="BigCo Inc. logo" />
+              <img src={logo} alt="" />
             </div>
             <p className="dark:text-violet-400 text-2xl font-bold">
               The Maritime
@@ -116,7 +117,7 @@ const Header = () => {
                         </svg>
                         <div className="flex items-center justify-between w-48">
                           <div className="w-16">
-                            <img src="" alt="BigCo Inc. logo" />
+                            <img src={logo} alt="" />
                           </div>
                           <p className="dark:text-violet-400 text-2xl font-bold">
                             IQ Checker
@@ -144,32 +145,32 @@ const Header = () => {
                     <ul className="space-y-4">
                       <li>
                         <Link
-                          to="/home"
-                          aria-label="Home"
-                          title="Home"
+                          to="/register"
+                          aria-label="register"
+                          title="Register"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Home
+                          Register
                         </Link>
                       </li>
                       <li>
                         <Link
-                          to="/topics"
-                          aria-label="Topics"
-                          title="Topics"
+                          to="/login"
+                          aria-label="login"
+                          title="Login"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          <p>Topics</p>
+                          <p>Login</p>
                         </Link>
                       </li>
                       <li>
                         <Link
-                          to="/statistics"
-                          aria-label="Statistics"
-                          title="Statistics"
+                          to="/courses"
+                          aria-label="courses"
+                          title="Courses"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Statistics
+                          Courses
                         </Link>
                       </li>
                       <li>
