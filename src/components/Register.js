@@ -5,8 +5,13 @@ import { AuthContext } from "../contexts/UserContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, updateName, verifyEmail, signInWithGoogle } =
-    useContext(AuthContext);
+  const {
+    createUser,
+    updateName,
+    verifyEmail,
+    signInWithGoogle,
+    signInWithGitHub,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
   // console.log(createUser);
   const handleSubmit = (event) => {
@@ -46,6 +51,16 @@ const Register = () => {
   };
   const handleGoogle = () => {
     signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        navigate("/courses");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const handleGitHub = () => {
+    signInWithGitHub()
       .then((result) => {
         const user = result.user;
         navigate("/courses");
@@ -115,7 +130,7 @@ const Register = () => {
             </button>
           </div>
           <div className="form-control mb-6 mx-8">
-            <button onClick={""} className="btn btn-primary">
+            <button onClick={handleGitHub} className="btn btn-primary">
               <FaGithub></FaGithub> With GitHub
             </button>
           </div>

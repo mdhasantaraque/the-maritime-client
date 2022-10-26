@@ -6,7 +6,8 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
-  const { logIn, signInWithGoogle, resetPassword } = useContext(AuthContext);
+  const { logIn, signInWithGoogle, signInWithGitHub, resetPassword } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -36,6 +37,16 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const handleGitHub = () => {
+    signInWithGitHub()
+      .then((result) => {
+        const user = result.user;
+        navigate("/courses");
       })
       .catch((error) => {
         console.error(error);
@@ -101,7 +112,7 @@ const Login = () => {
             </button>
           </div>
           <div className="form-control mb-6 mx-8">
-            <button onClick={""} className="btn btn-primary">
+            <button onClick={handleGitHub} className="btn btn-primary">
               <FaGithub></FaGithub> With GitHub
             </button>
           </div>
