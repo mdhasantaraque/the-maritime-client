@@ -1,8 +1,9 @@
 import React from "react";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const {
@@ -13,6 +14,8 @@ const Register = () => {
     signInWithGitHub,
   } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // console.log(createUser);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,63 +26,63 @@ const Register = () => {
     const password = form.password.value;
 
     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-      alert("Please provide minimum two upper case");
+      toast.error("Please provide minimum two upper case", { autoClose: 3000 });
       return;
     }
     if (password.length < 6) {
-      alert("Should be at least 6 character");
+      toast.error("Should be at least 6 character", { autoClose: 3000 });
       return;
     }
     if (!/(?=.*[!@#$&*%])/.test(password)) {
-      alert("Please should be at least 1 special character");
+      toast.error("Please should be at least 1 special character", {
+        autoClose: 3000,
+      });
       return;
     }
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-
         form.reset();
         navigate("/");
 
         updateName(name)
           .then(() => {
-            // toast.success('Name Updated')
             verifyEmail()
               .then(() => {
-                // toast.success('Please check your email for verification link')
-                // navigate(from, { replace: true });
+                toast.success("Please check your email for verification");
+                navigate(from, { replace: true });
               })
               .catch((error) => {
-                // toast.error(error.message)
+                toast.error(error.message);
               });
           })
           .catch((error) => {
-            // toast.error(error.message)
+            toast.error(error.message);
           });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error.message);
       });
   };
   const handleGoogle = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error.message);
       });
   };
   const handleGitHub = () => {
     signInWithGitHub()
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error.message);
       });
   };
   return (

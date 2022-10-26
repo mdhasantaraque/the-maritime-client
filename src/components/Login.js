@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -39,25 +40,25 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error.message);
       });
   };
   const handleGitHub = () => {
     signInWithGitHub()
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error.message);
       });
   };
   const handlePasswordReset = () => {
     resetPassword(userEmail)
       .then(() => {
-        // toast.success("Please check email, reset your email password");
+        toast.success("Please check email, reset your email password");
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => toast.error(error.message));
   };
 
   return (
