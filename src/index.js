@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+// import "react-toastify/dist/ReactToastify.css";
 import UserContext from "./contexts/UserContext";
+// import { Toast } from "react-toastify/dist/components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UserContext>
+      {/* <Toast position="top-center"></Toast> */}
       <App />
     </UserContext>
   </React.StrictMode>

@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/UserContext";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
   const { createUser, updateName, verifyEmail, signInWithGoogle } =
@@ -21,7 +22,7 @@ const Register = () => {
         const user = result.user;
 
         form.reset();
-        navigate("/");
+        navigate("/courses");
 
         updateName(name)
           .then(() => {
@@ -47,7 +48,7 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate("/courses");
       })
       .catch((error) => {
         console.error(error);
@@ -109,7 +110,13 @@ const Register = () => {
           </form>
           <div className="form-control mb-6 mx-8">
             <button onClick={handleGoogle} className="btn btn-primary">
-              Google Sign In
+              <FaGoogle></FaGoogle>
+              With Google
+            </button>
+          </div>
+          <div className="form-control mb-6 mx-8">
+            <button onClick={""} className="btn btn-primary">
+              <FaGithub></FaGithub> With GitHub
             </button>
           </div>
         </div>
