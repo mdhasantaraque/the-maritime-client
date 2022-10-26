@@ -34,4 +34,5 @@ https://iq-checker-taraque.netlify.app
     iii. React Icon,
     iv. React toastify,
     v. Daisy UI,
+    vi. cors
     etc.

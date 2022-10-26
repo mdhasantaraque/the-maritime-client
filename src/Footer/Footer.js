@@ -12,22 +12,21 @@ const Footer = () => {
         <p>
           The Maritime
           <br />
-          Providing reliable tech since 1992
+          Experts in distance learning...
         </p>
       </div>
       <div>
-        <span className="footer-title">Services</span>
-        <Link className="link link-hover">Branding</Link>
-        <Link className="link link-hover">Design</Link>
-        <Link className="link link-hover">Marketing</Link>
-        <Link className="link link-hover">Advertisement</Link>
+        <span className="footer-title ">Services</span>
+        <Link className="link link-hover">Short Courses</Link>
+        <Link className="link link-hover">Maritime Law</Link>
+        <Link className="link link-hover">Marine Salvage</Link>
+        <Link className="link link-hover">Yacht Brokerage</Link>
       </div>
       <div>
         <span className="footer-title">Company</span>
         <Link className="link link-hover">About us</Link>
         <Link className="link link-hover">Contact</Link>
         <Link className="link link-hover">Jobs</Link>
-        <Link className="link link-hover">Press kit</Link>
       </div>
       <div>
         <span className="footer-title">Legal</span>

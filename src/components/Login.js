@@ -108,12 +108,12 @@ const Login = () => {
           </form>
           <div className="form-control mb-6 mx-8">
             <button onClick={handleGoogle} className="btn btn-primary">
-              <FaGoogle></FaGoogle> With Google
+              <FaGoogle></FaGoogle> Login via Google
             </button>
           </div>
           <div className="form-control mb-6 mx-8">
             <button onClick={handleGitHub} className="btn btn-primary">
-              <FaGithub></FaGithub> With GitHub
+              <FaGithub></FaGithub> Login via GitHub
             </button>
           </div>
         </div>
