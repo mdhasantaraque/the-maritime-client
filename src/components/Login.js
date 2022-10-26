@@ -46,7 +46,7 @@ const Login = () => {
     signInWithGitHub()
       .then((result) => {
         const user = result.user;
-        navigate("/courses");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -65,7 +65,6 @@ const Login = () => {
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Please Login !!!</h1>
-          <p className="py-6 text-center">Login with email and password</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit} className="card-body">

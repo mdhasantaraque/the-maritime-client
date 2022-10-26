@@ -22,12 +22,25 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+      alert("Please provide minimum two upper case");
+      return;
+    }
+    if (password.length < 6) {
+      alert("Should be at least 6 character");
+      return;
+    }
+    if (!/(?=.*[!@#$&*%])/.test(password)) {
+      alert("Please should be at least 1 special character");
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
 
         form.reset();
-        navigate("/courses");
+        navigate("/");
 
         updateName(name)
           .then(() => {
@@ -53,7 +66,7 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        navigate("/courses");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -63,7 +76,7 @@ const Register = () => {
     signInWithGitHub()
       .then((result) => {
         const user = result.user;
-        navigate("/courses");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -74,7 +87,6 @@ const Register = () => {
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Please Register!</h1>
-          <p className="py-6 text-center">Register with email and password</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit} className="card-body">
