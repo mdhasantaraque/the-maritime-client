@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDC94MHXYAjEVtoAbRMxVq3pl1MTENUSJg",
-  authDomain: "the-maritime-taraque.firebaseapp.com",
-  projectId: "the-maritime-taraque",
-  storageBucket: "the-maritime-taraque.appspot.com",
-  messagingSenderId: "193133328167",
-  appId: "1:193133328167:web:23c4e8f42c5873d0011b02",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

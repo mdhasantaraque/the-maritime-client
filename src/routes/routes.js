@@ -5,7 +5,9 @@ import Blog from "../components/Blog";
 import Courses from "../components/Courses";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import Category from "../components/Category";
+import CourseDetails from "../components/CourseDetails";
+import CoursePremium from "../components/CoursePremium";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,24 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
+      },
+      {
+        path: "/courses/:id",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/courses/${params.id}`);
+        },
+        element: <CourseDetails></CourseDetails>,
+      },
+      {
+        path: "/premium/:id",
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/courses/${params.id}`);
+        },
+        element: (
+          <PrivateRoute>
+            <CoursePremium></CoursePremium>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blog",

@@ -44,7 +44,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         form.reset();
-        navigate("/");
+        navigate(from, { replace: true });
 
         updateName(name)
           .then(() => {

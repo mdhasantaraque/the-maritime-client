@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo_6.png";
 import { AuthContext } from "../contexts/UserContext";
@@ -21,14 +22,14 @@ const Header = () => {
       });
   };
   return (
-    <header className="dark:bg-indigo-800 dark:text-gray-100">
+    <header className="dark:bg-indigo-800 text-amber-400">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center justify-between w-64">
             <div className="w-34">
               <img src={logo} alt="" />
             </div>
-            <p className="dark:text-primary text-3xl font-bold ml-2">
+            <p className="dark:text-danger text-3xl font-bold ml-2">
               THE MARITIME
             </p>
           </div>
@@ -40,11 +41,25 @@ const Header = () => {
                 title="Courses"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
+                    ? "font-medium tracking-wide text-amber-400 transition-colors duration-200 hover:text-amber-400"
                     : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
                 }
               >
                 <p>Courses</p>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to=""
+                aria-label="f&q"
+                title="f&q"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-amber-400"
+                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
+                }
+              >
+                <p>F & Q</p>
               </NavLink>
             </li>
             <li>
@@ -54,8 +69,8 @@ const Header = () => {
                 title="Blog"
                 className={({ isActive }) =>
                   isActive
-                    ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
-                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
+                    ? "font-medium tracking-wide text-amber-400 transition-colors duration-200 hover:text-amber-400"
+                    : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-amber-400"
                 }
               >
                 Blog
@@ -80,8 +95,8 @@ const Header = () => {
                     title="register"
                     className={({ isActive }) =>
                       isActive
-                        ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
-                        : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
+                        ? "font-medium tracking-wide text-amber-400 transition-colors duration-200 hover:text-amber-400"
+                        : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-amber-400"
                     }
                   >
                     Register
@@ -95,8 +110,8 @@ const Header = () => {
                     title="Login"
                     className={({ isActive }) =>
                       isActive
-                        ? "font-medium tracking-wide text-primary transition-colors duration-200 hover:text-primary"
-                        : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-primary"
+                        ? "font-medium tracking-wide text-amber-400 transition-colors duration-200 hover:text-amber-400"
+                        : "font-medium tracking-wide dark:text-gray-100 transition-colors duration-200 hover:text-amber-400"
                     }
                   >
                     Login
@@ -105,7 +120,17 @@ const Header = () => {
               </>
             )}
 
-            <li>{user?.email && <span>{user.email}</span>}</li>
+            <li>
+              {user?.photoURL ? (
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} title={user?.displayName} />
+                  </div>
+                </label>
+              ) : (
+                <FaUserCircle></FaUserCircle>
+              )}
+            </li>
           </ul>
           <div className="lg:hidden">
             <button
