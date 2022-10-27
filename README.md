@@ -42,5 +42,4 @@ https://the-maritime-taraque.firebaseapp.com/
     iv. React toastify,
     v. Daisy UI,
     vi. cors
-    vii.toggle-switch
     etc.
