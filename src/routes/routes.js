@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     loader: async () => {
-      return fetch("http://localhost:5000/courses");
+      return fetch("https://the-maritime-server.vercel.app/courses");
     },
     children: [
       {
@@ -36,14 +36,18 @@ export const router = createBrowserRouter([
       {
         path: "/courses/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/courses/${params.id}`);
+          return fetch(
+            `https://the-maritime-server.vercel.app/courses/${params.id}`
+          );
         },
         element: <CourseDetails></CourseDetails>,
       },
       {
         path: "/premium/:id",
         loader: async ({ params }) => {
-          return fetch(`http://localhost:5000/courses/${params.id}`);
+          return fetch(
+            `https://the-maritime-server.vercel.app/courses/${params.id}`
+          );
         },
         element: (
           <PrivateRoute>

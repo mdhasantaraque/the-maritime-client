@@ -25,7 +25,7 @@ const CoursePremium = () => {
             type="button"
             className="w-full py-2 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
           >
-            Premium
+            Premium Join
           </button>
         </div>
 
