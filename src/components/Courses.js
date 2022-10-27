@@ -1,24 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { loadCourses } from "../layout/Main";
+import CoursePages from "./CoursePages";
 
 const Courses = ({ course }) => {
-  // console.log(course);
+  const allCourses = useContext(loadCourses);
   return (
-    <div className="grid grid-cols-2 gap-4 mx-10 text-center">
-      <div className="w-1/4">01</div>
-
-      <div className="w-3/4">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+    <div>
+      <div></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-items-center py-auto p-4 bg-base-200">
+        {allCourses.map((course) => (
+          <CoursePages key={course.id} course={course}></CoursePages>
+        ))}
       </div>
     </div>
   );

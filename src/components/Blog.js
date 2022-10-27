@@ -74,22 +74,15 @@ const Blog = () => {
               No.3- How does the private route work?
             </p>
             <p className="mt-2">
-              <ul>
-                <li>
-                  The private component is used to protect selected pages in a
-                  React act from unauthenticated users.
-                </li>
-                <li>
-                  The {`<PrivateRoute/>`} component will check the current user
-                  state from the user, destructured from useContext hook.
-                </li>
-                <li>
-                  The private route component renders child components
-                  (children) if the user is logged in. If not logged in the user
-                  redirected to the/login page with the return url passed in
-                  Navigate component.
-                </li>
-              </ul>
+              The private component is used to protect selected pages in a React
+              act from unauthenticated users.
+              <br />
+              The {`<PrivateRoute/>`} component will check the current user
+              state from the user, destructured from useContext hook.
+              <br />
+              The private route component renders child components (children) if
+              the user is logged in. If not logged in the user redirected to
+              the/login page with the return url passed in Navigate component.
             </p>
           </div>
         </div>

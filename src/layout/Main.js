@@ -9,13 +9,13 @@ const Main = () => {
   const allCourses = useLoaderData();
 
   return (
-    <div>
-      <loadCourses value={allCourses}>
+    <>
+      <loadCourses.Provider value={allCourses}>
         <Header></Header>
         <Outlet></Outlet>
         <Footer></Footer>
-      </loadCourses>
-    </div>
+      </loadCourses.Provider>
+    </>
   );
 };
 
