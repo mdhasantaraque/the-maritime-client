@@ -131,6 +131,17 @@ const Header = () => {
                 <FaUserCircle></FaUserCircle>
               )}
             </li>
+            <li>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="toggle toggle-accent"
+                    checked
+                  />
+                </label>
+              </div>
+            </li>
           </ul>
           <div className="lg:hidden">
             <button

@@ -26,14 +26,17 @@ https://iq-checker-taraque.netlify.app
 14. Statically create blog component.
 15. Uses UserContext, routes and PrivateRoute.
 16. Onclick using to create a toast for eny success and error.
-17. Added environment variable.
-18. Also uses toggle for dark mode.
-19. Make sure all component is responsive.
-20. At last updated README file.
-21. Installed file are : i. react-router-dom,
+17. Added dark/ligth toggle.
+
+18. Environment variable to hide the firebase key.
+19. Also uses toggle for dark mode.
+20. Make sure all component is responsive.
+21. At last updated README file.
+22. Installed file are : i. react-router-dom,
     ii. Tailwind,
     iii. React Icon,
     iv. React toastify,
     v. Daisy UI,
     vi. cors
+    vii.toggle-switch
     etc.
