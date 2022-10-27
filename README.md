@@ -1,8 +1,8 @@
-# Github client site private repo
+# Github client side private repo
 
 https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-mdhasantaraque
 
-# Github server site private repo
+# Github server side private repo
 
 https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-mdhasantaraque
 
