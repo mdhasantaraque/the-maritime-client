@@ -1,10 +1,14 @@
 # Github private repo
 
-https://github.com/programming-hero-web-course2/b6-quiz-crackerz-mdhasantaraque
+https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-mdhasantaraque
 
-## Netlify live link
+# Github private repo
 
-https://iq-checker-taraque.netlify.app
+https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-mdhasantaraque
+
+## Firebase live link
+
+https://the-maritime-taraque.firebaseapp.com/
 
 ## Project name: The Maritime
 
@@ -27,12 +31,12 @@ https://iq-checker-taraque.netlify.app
 15. Uses UserContext, routes and PrivateRoute.
 16. Onclick using to create a toast for eny success and error.
 17. Added dark/ligth toggle.
-
 18. Environment variable to hide the firebase key.
-19. Also uses toggle for dark mode.
-20. Make sure all component is responsive.
-21. At last updated README file.
-22. Installed file are : i. react-router-dom,
+19. Client site hosting in firebase.
+20. Server site hosting in Vercel.
+21. Make sure all component is responsive.
+22. At last updated README file.
+23. Installed file are : i. react-router-dom,
     ii. Tailwind,
     iii. React Icon,
     iv. React toastify,
